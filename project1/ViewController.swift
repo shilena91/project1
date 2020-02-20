@@ -34,7 +34,9 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
+        picture.sort()
         cell.textLabel?.text = picture[indexPath.row]
+        cell.textLabel?.font = UIFont(name: (cell.textLabel?.font.fontName)!, size: 30)
         return (cell)
     }
     
@@ -42,6 +44,7 @@ class ViewController: UITableViewController {
         if let vc = storyboard?.instantiateViewController(identifier: "Detail") as? DetailViewController {
             vc.selectedImage = picture[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
+            vc.pictureTitle = "Picture \(indexPath.row + 1) of \(picture.count)"
         }
     }
 
