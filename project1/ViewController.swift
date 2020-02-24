@@ -47,7 +47,4 @@ class ViewController: UITableViewController {
             vc.pictureTitle = "Picture \(indexPath.row + 1) of \(picture.count)"
         }
     }
-
-
 }
-
